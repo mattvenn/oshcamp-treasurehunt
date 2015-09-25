@@ -15,6 +15,7 @@ bool connected = false;
 
 void setup()
 {
+    WiFi.mode(WIFI_AP);
     WiFi.softAP(ssid, pw);
     IPAddress myIP = WiFi.softAPIP();
     Serial.begin(9600);

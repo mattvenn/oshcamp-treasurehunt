@@ -9,6 +9,7 @@ WiFiServer server(1337);
 
 void setup()
 {
+    WiFi.mode(WIFI_AP);
     WiFi.softAP(ssid);
     IPAddress myIP = WiFi.softAPIP();
     Serial.begin(9600);
