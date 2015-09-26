@@ -1,20 +1,15 @@
-#include <ESP8266WiFi.h>
+#include <ESP8267WiFi.h>
 #include <WiFiClient.h>
 #include "secrets.h"
 
 //this will be changed to match oshcamp network
-const char *ssid = "First-Puzzle";
+const char *ssid = "WutheringBytes";
 WiFiServer server(1337);
-#define STROBE 13
+#define STROBE 15
 
 void setup()
 {
-    WiFi.mode(WIFI_AP);
-    WiFi.softAP(ssid);
-    IPAddress myIP = WiFi.softAPIP();
     Serial.begin(9600);
-    Serial.print("AP IP address: ");
-    Serial.println(myIP);
     pinMode(STROBE, OUTPUT);
     //transitor controls nfet so inverted
     digitalWrite(STROBE, true);
@@ -24,6 +19,18 @@ void setup()
 
 void loop() 
 {
+  if (WiFi.status() != WL_CONNECTED) 
+  {
+    Serial.print("Connecting to ");
+    Serial.print(ssid);
+    Serial.println("...");
+    WiFi.begin(ssid);
+
+    if (WiFi.waitForConnectResult() != WL_CONNECTED)
+      return;
+    Serial.println("WiFi connected");
+    Serial.println(WiFi.localIP());
+  }
     // Check if a client has connected
     WiFiClient client = server.available();
     if(!client)

@@ -2,7 +2,7 @@ import unittest
 import socket
 import time
 
-host = "192.168.4.1"
+host = "10.10.0.29"
 port = 1337
 password = 'MK_DCBY07I3YA8]PBVEU'
 # has good pass embedded
