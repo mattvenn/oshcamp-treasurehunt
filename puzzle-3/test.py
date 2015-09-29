@@ -47,8 +47,8 @@ class TestClue3(unittest.TestCase):
         soc = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         soc.connect((host, port))
         soc.send(password + " strobe_on")
-        time.sleep(3)  # so we can see it
         self.assertEqual(soc.recv(1000), "strobe on")
+        time.sleep(3)  # so we can see it
 
     def test_strobe_off(self):
         soc = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
