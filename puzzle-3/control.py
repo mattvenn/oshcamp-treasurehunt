@@ -17,5 +17,5 @@ def test_strobe_off():
     
 if __name__ == '__main__':
     test_strobe_on()
-    time.sleep(5)
+    time.sleep(7)
     test_strobe_off()
