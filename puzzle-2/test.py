@@ -35,5 +35,7 @@ class TestClue2(unittest.TestCase):
             with open(extracted_clue) as ef:
                 self.assertEqual(cf.read(), ef.read())
 
+        os.unlink('/tmp/t')
+
 if __name__ == '__main__':
     unittest.main()

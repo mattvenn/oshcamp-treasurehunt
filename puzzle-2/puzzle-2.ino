@@ -3,7 +3,7 @@
 #include <ESP8266WebServer.h>
 #include <FS.h>
 
-// #define DISAPPEAR //uncomment to make disappearing AP
+#define DISAPPEAR //uncomment to make disappearing AP
 
 #define LINK "<html>the data you need might be <a href='/file?file=/bust.jpg'>here</a></html>\n\n"
 const char *ssid = "glimpse";
